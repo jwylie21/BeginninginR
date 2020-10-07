@@ -34,7 +34,7 @@ Here is the link to R Studio:
 
 # Getting started
 
-The last portion of this tutorial (Section 6) utilizes a dataset that is
+The last portion of this tutorial (Section 7) utilizes a dataset that is
 available on OSF. You can access it by request here:
 <https://osf.io/3xmny/>. This is a work in progress. If you have any
 questions, feedback, or concerns, please email me\!
@@ -52,7 +52,7 @@ your future self will thank you. Additionally, R is case sensitive. Most
 of the time, if your code won’t work, there is a typo of case error
 hidden somewhere\!
 
-**0. The Set-up **
+# 0. The Set-up
 
 This section has some set up functions that will be useful. For example,
 using: `data <- read.csv(FILEHERE)` and then `colnames(data)` would take
@@ -144,7 +144,7 @@ colnames(dfAesth)
 # CSV write.csv(myData, 'FILENAME.csv')
 ```
 
-**1. The Calculator**
+# 1. The Calculator
 
 You can use R like it’s just a big calculator
 
@@ -282,7 +282,7 @@ exp(log(2))  # These generally operate by requiring reading from the inside-out.
 
     ## [1] 2
 
-**2. The Logician **
+# 2. The Logician
 
 You can use R to evaluate logical statements
 
@@ -338,7 +338,7 @@ You can use R to evaluate logical statements
 
     ## [1] TRUE
 
-**3. Object assignment **
+# 3. Object assignment
 
 Almost every operation in R uses objects. Objects are used to store
 information, and often times, you will be able to think about objects as
@@ -465,7 +465,7 @@ myVector
     ##                             time 1 time 2 time 3 time 4 
     ##      1      2      9     10      1      2      9     10
 
-**3. More complex objects **
+# 4. More complex objects
 
 You can use vectors (\#s with magnitude and direction), factors
 (categorical variable, can have diff levels), matrices (vectors with
@@ -526,7 +526,7 @@ myList[[2]]
 # come back to that in a bit!
 ```
 
-**4. Generating variables & functions **
+# 5. Generating variables & functions
 
 We will not go over much more of the basics, here is a brief intro into
 variable creation and functions below:
@@ -556,7 +556,7 @@ myfun(species)
 
     ## [1] "swallow"  "bluebird" "cardinal"
 
-**5. Dataframes **
+# 6. Dataframes
 
 Dataframes arrange columns together so that they look like a spreadsheet
 would look. They are incredibly useful for data analysis for this reason
@@ -605,7 +605,7 @@ mtcars["Mazda RX4", ]
 str(mtcars["Mazda RX4", ])
 ```
 
-**6. Applying these concepts **
+# 7. Applying these concepts
 
 We will now explore some pilot data using what we’ve learned. One reason
 to do this is because often times the challenge for reserachers is not
@@ -751,7 +751,7 @@ summary(model2)
     ## Multiple R-squared:  0.01647,    Adjusted R-squared:  0.006115 
     ## F-statistic: 1.591 on 1 and 95 DF,  p-value: 0.2103
 
-**7. Visualizations **
+# 8. Visualizations
 
 Here we will go thru creation of a basic scatterplot. All code PRECEDES
 the respective figure.
@@ -792,7 +792,7 @@ scatter1 + geom_point(shape = 16, size = 3) + geom_smooth(method = "lm",
 
 ![](R_Basic_Tutorial_files/figure-gfm/scatter1-3.png)<!-- -->
 
-**7.1 Visualizations **
+*8.1 Visualizations *
 
 Adding regression lines by Gender.
 
@@ -809,7 +809,7 @@ scatter2
 
 ![](R_Basic_Tutorial_files/figure-gfm/scatter2-1.png)<!-- -->
 
-**7.2 Visualizations - Histograms **
+*8.2 Visualizations - Histograms *
 
 Creating a histogram with the mean included.
 
@@ -825,7 +825,7 @@ histogram1 + geom_vline(aes(xintercept = mean(LikingBP)), color = "blue",
 
 ![](R_Basic_Tutorial_files/figure-gfm/histogram1-1.png)<!-- -->
 
-**7.2.1 Visualizations **
+*8.2.1 Visualizations with grouping *
 
 Histogram grouped by Gender.
 
