@@ -802,7 +802,7 @@ histogram1 + geom_vline(aes(xintercept = mean(LikingBP)), color = "blue",
 
 ![](R_Basic_Tutorial_files/figure-gfm/histogram1-1.png)<!-- -->
 
-*8.2.1 Visualizations with grouping *
+# 8.2.1 Visualizations with grouping
 
 Histogram grouped by Gender.
 
