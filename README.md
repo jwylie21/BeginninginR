@@ -70,8 +70,8 @@ IMPORTANT: One of the great things about R is that it is open source. That means
 # You have to install the packages once to move them from
 # CRAN to your R - so you can actually use them!
 
-# install.packages(“readr”) # Will install the default
-# location install.packages(“car”)
+# install.packages(“readr”) # Will install the default location
+# install.packages(“car”)
 # install.packages(“tidyverse”) 
 # install.packages(“psych”) 
 # install.packages(“ggplot2”)
