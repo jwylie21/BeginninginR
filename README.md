@@ -74,7 +74,7 @@ IMPORTANT: One of the great things about R is that it is open source. That means
 # location install.packages(“car”)
 # install.packages(“tidyverse”) 
 # install.packages(“psych”) 
-install.packages(“ggplot2”)
+# install.packages(“ggplot2”)
 # install.packages(“lmtest”)
 ```
 
