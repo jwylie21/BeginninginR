@@ -60,93 +60,72 @@ a .csv and read it into R, then pull the variable names for you. I find
 this part to be less intuitive, so if you are like me, you will get used
 to it with practice.
 
+### Packages: 
+
+One reason that R is so useful for data analyses is because many of the things you need for them are already created for you in packages. This means that you can take advatage of the tools that developers have already put the time in to create. Almost anything you will need is out there somewhere (especially for more basic analyses), you just have to find it. This is another place that Google will come in handy.
+
+IMPORTANT: One of the great things about R is that it is open source. That means that the packages are open source as well. They are hosted on CRAN, so when you try to install a package, it will search for it there. There are other ways of getting packages (e.g., if they are not on CRAN), but that is not something you will likely need to do and so it won't be covered here.
+
 ``` r
-# Packages: R is so useful for data analysis because many of
-# the things you need to run data analyses are already
-# created for you in packaged. As such, you will rely heavily
-# on them since a bunch of great developers have already put
-# the time in to create these tools.
-
-# IMPORTANT: All of this is open source and on CRAN, so when
-# you open the install a package, it will search for it there
-# (there are other ways of gettign packages, but that is not
-# something you will liekly need to do)
-
 # You have to install the packages once to move them from
-# CRAN to your R - so you can use them!
+# CRAN to your R - so you can actually use them!
 
 # install.packages(“readr”) # Will install the default
 # location install.packages(“car”)
-# install.packages(“tidyverse”) install.packages(“dplyr”)
-# install.packages(“psych”) install.packages(“ggplot2”)
-# install.packages(“plyr”)
+# install.packages(“tidyverse”) 
+# install.packages(“psych”) 
+install.packages(“ggplot2”)
+# install.packages(“lmtest”)
+```
 
-# After you have downloaded the package, you have to use
-# library to read it in. So- you download it from CRAN one
-# time. But EVERYTIME you need to use the package from your
-# computer, you need to use library. Also, sometimes you will
-# see that the package contains a function that is the same
-# name as a function from a different package. In this case,
-# you will see a message that alerts you that the most
-# recently uploaded package is going to mask the previous
-# one! There are ways to get around this. You can call the
-# package in your code to make sure it pulls the right
-# version (or you can unload the package). There will be an
-# example of this in Section 7.
+After you have downloaded the package, you have to use `library()` to read it in. So, first you have to download it from CRAN **one** time. Then, **every time** you need to use a given package that you have already installed on your local device, you need to use the `library()` command to load in the package for use. This seems straightforward, but new users often get confused about the differences between install and library. 
+
+IMPORTANT: Sometimes you will see that the package contains a function that has the same name as a function from a different package. In this case, R you will see a warning message when you load the packages (this warning doesn't mean the load failed, just to let you know there is masking happening). The most recently loaded package will always be the one that masks functions from previously loaded packages, so the order that you load them does matter! But, sometimes it can't be avoided. In those cases you can call the package from which the function you intend to use comes from directly in your code to make sure it pulls the right version (you can unload the package you don't want). There will be an example of this in Section 7 (with the dplyr package).
+
+``` r
+#loading installed packages
 
 library(readr)
-library(utils)
 library(car)
 library(tidyverse)
-library(dplyr)
 library(psych)
 library(ggplot2)
-library(plyr)
-library(summarytools)
 library(lmtest)
+```
+Now we will load in data. There are many ways to do this and many ways to read in different file types. We will be working with absolute paths (the exact file folder location of the downloaded data). But R supports working with relative paths as well (which is the gold standard for reproducible code). 
 
-# To set up your the working directory, you can use
-# setwd('C:/Users/NAME/LOCATION/'). But often times you will
-# need to use `Sys.getenv('HOME')` to find where Home base
-# is.
+To set up your the working directory, you can use `setwd('C:/Users/NAME/LOCATION/')`. If you are not sure where you set up your RStudio to look, you will need to use `Sys.getenv('HOME')` to find where Home base is. Once you know where that is, you can remove the `HOME` directory part from your path, and replace it with `~` `setwd('~/Documents')`.
 
-# You can remove the `HOME` directory from paths, and replace
-# it with `~` setwd('~/Documents')
+``` r
+# Loading data - Accessing files from your working
+# directory by file type.
 
-# Loading data - You can access files from your working
-# directory.
-
-# CSV (best way to save files!) myData <-
-# read.csv('FILENAME.csv')
+# CSV (best way to save files!) 
+# myData <- read.csv('FILENAME.csv')
 
 # SPSS files!
 library(foreign)
 # MySPSSdata<- read.spss('FILENAME.sav')
 
-## You can also load data straight from OSF, but we won't
-## cover that right now
+# You can also load data straight from OSF, but we won't
+# cover that right now
 
+#Now we will actually download some data
 # Downloading what we will need for the exercise at the end.
 setwd("/Users/jordanwylie/Desktop/")  # Import data (csv file)/set this to wherever you downloaded the data from OSF.
 
 dfAesth <- read.csv("Moral_Art_CleanRecode_VOSF.csv", header = T)
 colnames(dfAesth)
+```
+Saving data: when you do things in R, they are not being written directly into your data file. This is actually really great! You will probably make (many) mistakes. Having your raw file untouched is useful so that you don't permanently mess anything up. But alas, there may be times when you do want to write things from R directly into your data file. For example, if you created a composite variable you can save new variable directly to the file. In this case, I recommend that you do not overwrite the original file, but create a new one instead.
 
-# Saving data - when you do things in R, they are not being
-# written directly into your datafile. This is actually
-# really great! You will probably make (many) mistakes.
-# Having your file untouched is useful so that you don't
-# permanently mess anything up. But, if you want to save new
-# variables you created or something like that, you can! I
-# recommend that you do not overwrite the original file, but
-# create a new one.
-
+``` r
 # CSV write.csv(myData, 'FILENAME.csv')
 ```
 
 # 1. The Calculator
 
-You can use R like it’s just a big calculator
+You can use R like it’s just a big calculator. We will go through some of the basic calculator functions that R can handle. If you get used to the interface, I find R to be way easier to use than a traditional graphing calculator because you can easily edit (and see) the inputs!
 
 ``` r
 # Addition
@@ -284,56 +263,64 @@ exp(log(2))  # These generally operate by requiring reading from the inside-out.
 
 # 2. The Logician
 
-You can use R to evaluate logical statements
+You can use R to evaluate logical statements (much like what people use excel for).
+
+Here are the basics: 
+* == equality
+* != inequality
+* > greater than 
+* >= greater than or equal to
+* < less than 
+* <= less than or equal to 
+* & AND 
+* | OR 
+* ! NOT
 
 ``` r
-# == equality != inequality > greater than >= greater than or
-# equal to < less than <= less than or equal to & AND | OR !
-# NOT
 
 # Equality
-2 + 2 == 5  # FALSE
+2 + 2 == 5  
 ```
 
     ## [1] FALSE
 
 ``` r
 # Inequality
-2 + 2 != 5  # TRUE
+2 + 2 != 5  
 ```
 
     ## [1] TRUE
 
 ``` r
-5 != 1  # TRUE
+5 != 1  
 ```
 
     ## [1] TRUE
 
 ``` r
 # Greater than
-5 > 1  # TRUE
+5 > 1  
 ```
 
     ## [1] TRUE
 
 ``` r
 # Greater than or equal to
-5 >= 10  # FALSE
+5 >= 10  
 ```
 
     ## [1] FALSE
 
 ``` r
 # Less than
-5 < 1  # FALSE
+5 < 1  
 ```
 
     ## [1] FALSE
 
 ``` r
 # Less than or equal to
-4 <= 5  # TRUE
+4 <= 5 
 ```
 
     ## [1] TRUE
@@ -383,13 +370,10 @@ myNumber == 10  #my number was overwritten when I passed the new number to the o
 
     ## [1] FALSE
 
-``` r
-# You can use any letter or word to represent your variable,
-# list, object, etc. However, you want ot stay away from
-# letters that have meaning already in math (this is true in
-# MATLAB as well - i, j); for example, e already has a
-# meaning, so you shouldn't use that.
 
+You can use any letter or word to represent your variable, list, object, etc. However, you want ot stay away from letters that have meaning already in math (this is true in MATLAB as well - i, j); for example, e already has a meaning, so you shouldn't use that.
+
+``` r
 ### Vectors - vectors have magnitude and location
 myObject <- c(1, 2, 9, 10)
 myObject
@@ -412,9 +396,8 @@ myNewObject
     ## time 1 time 2 time 3 time 4 
     ##      1      2      9     10
 
+You can also select and extract specific elements from objects in many ways, most basic is using square brackets `[]`
 ``` r
-# You can select and extract specific elements from objects
-# in many ways, most basic is using square brackets []
 myObject[2]
 ```
 
@@ -529,7 +512,7 @@ myList[[2]]
 # 5. Generating variables & functions
 
 We will not go over much more of the basics, here is a brief intro into
-variable creation and functions below:
+variable creation and functions below. You already know how to use the object assignment operator to create variables (you made a bunch of objects in the previous section!). But in this section, you will see a few different ways to create variables that will come in handy for data analysis. You will also see the basic formula for creating a function yourself. 
 
 ``` r
 # Create variables:
@@ -618,13 +601,11 @@ permission.
     ## 2   Male   42
     ## 3   <NA>    1
 
+
+The operator %>% basically tells R to take the value of that which is to the left and pass it to the right as an argument. This operator will come in handy many times! It makes your code more succinct. However, you can geta round using it if you are not comfortable with it. 
+
 ``` r
-##################################
 #SUMMARIES
-
-# The operator %>% basically tells R to take the value of that which is to the left and 
-# pass it to the right as an argument
-
 # detach(plyr) 
 #This is how you would remove a package that you don't want to mask something
 
@@ -670,7 +651,6 @@ aesth.summaryBP
     ## 2 Male          3.69      1.34     0.207
 
 ``` r
-##################################
 #CORRELATIONS
 corVar1 <- dfAesth[,c("LikingBP","LikingBN","OCDIndex")]
 corrVarMat <- lowerCor(corVar1)
@@ -702,7 +682,6 @@ corr.test(corVar1) # use = "pairwise",method="pearson",adjust="holm", default is
     ##  To see confidence intervals of the correlations, print with the short=FALSE option
 
 ``` r
-##################################
 #REGRESSIONS
 model1 <- lm(LikingBP ~ OCDIndex, data = dfAesth)
 summary(model1)
