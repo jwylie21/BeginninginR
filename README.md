@@ -769,7 +769,7 @@ scatter1 + geom_point(shape = 16, size = 3) + geom_smooth(method = "lm",
 
 ![](R_Basic_Tutorial_files/figure-gfm/scatter1-3.png)<!-- -->
 
-*8.1 Visualizations *
+## 8.1 Visualizations 
 
 Adding regression lines by Gender.
 
@@ -786,7 +786,7 @@ scatter2
 
 ![](R_Basic_Tutorial_files/figure-gfm/scatter2-1.png)<!-- -->
 
-*8.2 Visualizations - Histograms *
+## 8.2 Visualizations - Histograms
 
 Creating a histogram with the mean included.
 
