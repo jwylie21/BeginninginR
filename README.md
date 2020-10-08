@@ -268,10 +268,8 @@ You can use R to evaluate logical statements (much like what people use excel fo
 Here are the basics: 
 * == equality
 * != inequality
-* > greater than 
-* >= greater than or equal to
-* < less than 
-* <= less than or equal to 
+* < less than, > greater than 
+* <= less than or equal to, >= greater than or equal to
 * & AND 
 * | OR 
 * ! NOT
@@ -333,10 +331,10 @@ variables. But objects are really flexible (functions, for example, can
 be objects).
 
 The pieces of information in objects are called “elements”. You “assign”
-data to objects using the assignment operator **\<-**. But, you can also
-asign using the **=** sign (it is just not preferred). If you want
+data to objects using the assignment operator `<-`. But, you can also
+asign using the `=` sign (it is just not preferred). If you want
 others to be able to read your code (i.e., reproducible code), you
-should use **\<-** to keep things clear.
+should use `<-` to keep things clear.
 
 ``` r
 myNumber <- 10
