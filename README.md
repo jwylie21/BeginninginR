@@ -94,7 +94,7 @@ library(lmtest)
 ```
 Now we will load in data. There are many ways to do this and many ways to read in different file types. We will be working with absolute paths (the exact file folder location of the downloaded data). But R supports working with relative paths as well (which is the gold standard for reproducible code). 
 
-To set up your the working directory, you can use `setwd('C:/Users/NAME/LOCATION/')`. If you are not sure where you set up your RStudio to look, you will need to use `Sys.getenv('HOME')` to find where Home base is. Once you know where that is, you can remove the `HOME` directory part from your path, and replace it with `~` `setwd('~/Documents')`.
+To set up your the working directory, you can use `setwd('C:/Users/NAME/LOCATION/')`. If you are not sure where you set up your RStudio to look, you will need to use `Sys.getenv('HOME')` to find where Home base is. Once you know where that is, you can remove the `HOME` directory part from your path, and replace it with `~` : `setwd('~/Documents')`.
 
 ``` r
 # Loading data - Accessing files from your working
