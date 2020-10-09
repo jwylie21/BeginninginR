@@ -70,12 +70,12 @@ IMPORTANT: One of the great things about R is that it is open source. That means
 # You have to install the packages once to move them from
 # CRAN to your R - so you can actually use them!
 
-# install.packages(“readr”) # Will install the default location
-# install.packages(“car”)
-# install.packages(“tidyverse”) 
-# install.packages(“psych”) 
-# install.packages(“ggplot2”)
-# install.packages(“lmtest”)
+install.packages(“readr”) # Will install the default location
+install.packages(“car”)
+install.packages(“tidyverse”) 
+install.packages(“psych”) 
+install.packages(“ggplot2”)
+install.packages(“lmtest”)
 ```
 
 After you have downloaded the package, you have to use `library()` to read it in. So, first you have to download it from CRAN **one** time. Then, **every time** you need to use a given package that you have already installed on your local device, you need to use the `library()` command to load in the package for use. This seems straightforward, but new users often get confused about the differences between install and library. 
@@ -101,11 +101,11 @@ To set up your the working directory, you can use `setwd('C:/Users/NAME/LOCATION
 # directory by file type.
 
 # CSV (best way to save files!) 
-# myData <- read.csv('FILENAME.csv')
+myData <- read.csv('FILENAME.csv')
 
 # SPSS files!
 library(foreign)
-# MySPSSdata<- read.spss('FILENAME.sav')
+mySPSSdata<- read.spss('FILENAME.sav')
 
 # You can also load data straight from OSF, but we won't
 # cover that right now
@@ -120,7 +120,8 @@ colnames(dfAesth)
 Saving data: when you do things in R, they are not being written directly into your data file. This is actually really great! You will probably make (many) mistakes. Having your raw file untouched is useful so that you don't permanently mess anything up. But alas, there may be times when you do want to write things from R directly into your data file. For example, if you created a composite variable you can save new variable directly to the file. In this case, I recommend that you do not overwrite the original file, but create a new one instead.
 
 ``` r
-# CSV write.csv(myData, 'FILENAME.csv')
+# CSV writing
+write.csv(myData, 'FILENAME.csv')
 ```
 
 # 1. The Calculator
@@ -460,8 +461,7 @@ function). To figure out the “class” of the object, you can use
 `class()` and `str()`.
 
 ``` r
-## Matrices + plus some manipualtion (to bind the rows =
-## rbind(); to bind the columns = cbind())
+## Matrices + plus some manipualtion (to bind the rows = rbind(); to bind the columns = cbind())
 
 mat1 <- matrix(1, nr = 2, nc = 2)
 mat2 <- matrix(2, nr = 2, nc = 2)
@@ -503,7 +503,7 @@ myList[[2]]
     ##      1      2      9     10
 
 ``` r
-# The last class we will cover are dataframes. But we will
+# The last class we will cover are dataframes. But we will 
 # come back to that in a bit!
 ```
 
@@ -604,7 +604,8 @@ The operator %>% basically tells R to take the value of that which is to the lef
 
 ``` r
 #SUMMARIES
-# detach(plyr) 
+
+detach(plyr) 
 #This is how you would remove a package that you don't want to mask something
 
 aesth.summaryBN <- dfAesth %>% # the names of the new data frame and the data frame to be summarized
@@ -650,6 +651,7 @@ aesth.summaryBP
 
 ``` r
 #CORRELATIONS
+
 corVar1 <- dfAesth[,c("LikingBP","LikingBN","OCDIndex")]
 corrVarMat <- lowerCor(corVar1)
 ```
@@ -681,6 +683,7 @@ corr.test(corVar1) # use = "pairwise",method="pearson",adjust="holm", default is
 
 ``` r
 #REGRESSIONS
+
 model1 <- lm(LikingBP ~ OCDIndex, data = dfAesth)
 summary(model1)
 ```
