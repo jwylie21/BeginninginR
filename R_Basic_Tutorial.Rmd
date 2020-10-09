@@ -3,10 +3,10 @@ title: "Basics Tutorial"
 author: "Jordan Wylie"
 date: "10/7/2020"
 output:
-  github_document
+  html_document
 ---
 
-# Basics of R Tutorial
+# Basics of R Tutorial (R Markdown Executable File - knits to HTML)
 
 This tutorial is to help new users get started with R with the goal of analyzing data. This tutorial was specifically made for undergraduate research assistants, but should be helpful for anyone looking to get started with data analysis in R. 
 
